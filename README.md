@@ -7,8 +7,8 @@ Demonstrates yarn scope issue
 Add the following to your ~/.npmrc
 
 ```
-//localhost:3300/:_authToken=abc123
-@foo:registry=http://localhost:3300/
+//yarn-scopes-issue-vkxzxwanjo.now.sh/:_authToken=abc123
+@foo:registry=https://yarn-scopes-issue-vkxzxwanjo.now.sh/
 ```
 
 Then execute
@@ -24,3 +24,7 @@ You should see the following printed during the `Fetching packages...` stage
 ```
 error An unexpected error occured, please open a bug report with the information provided in "/Users/karolis/Documents/workspace/yarn-scopes-issue/test/yarn-error.log"
 ```
+
+## Dev Usage
+
+Instead of pointing `.npmrc` to `now.sh`, you could instead point it to `http://localhost:3300` and run `npm instlal && npm start` to reproduce this locally.
