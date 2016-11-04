@@ -1,0 +1,14 @@
+{
+  "name": "yarn-scopes-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "git@github.com:KidkArolis/yarn-scopes-issue.git",
+    "type": "git"
+  },
+  "author": "Karolis Narkevicius <karolis.n@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

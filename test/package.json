@@ -1,0 +1,7 @@
+{
+  "name": "yarn-scopes-issue",
+  "version": "1.0.0",
+  "dependencies": {
+    "@foo/bar": "^1.0.0"
+  }
+}
