@@ -7,7 +7,7 @@
     "type": "git"
   },
   "scripts": {
-    "start": "node."
+    "start": "node ."
   },
   "author": "Karolis Narkevicius <karolis.n@gmail.com>",
   "license": "MIT",
