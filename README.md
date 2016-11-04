@@ -7,8 +7,8 @@ Demonstrates yarn scope issue
 Add the following to your ~/.npmrc
 
 ```
-//yarn-scopes-issue-vkxzxwanjo.now.sh/:_authToken=abc123
-@foo:registry=https://yarn-scopes-issue-vkxzxwanjo.now.sh/
+//yarn-scopes-issue-hplobdybcq.now.sh/:_authToken=abc123
+@foo:registry=https://yarn-scopes-issue-hplobdybcq.now.sh
 ```
 
 Then execute
