@@ -26,6 +26,10 @@ function auth (req, res, next) {
 }
 
 function meta (req, res) {
+  const host = req.host === 'localhost'
+    ? req.protocol + '://' + req.host + ':' + PORT
+    : req.protocol + '://' + req.host
+
   res.send({
     '_id': '@foo/bar',
     '_rev': '2153',
@@ -52,7 +56,7 @@ function meta (req, res) {
         '_nodeSupported': true,
         'dist': {
           'shasum': '3fbd9f4711a5234233dc6c9d7a052d4b9f83b416',
-          'tarball': req.protocol + '://' + req.host + ':' + PORT + '/@foo/bar/-/@foo/bar-1.0.0.tgz'
+          'tarball': host + '/@foo/bar/-/@foo/bar-1.0.0.tgz'
         }
       }
     }
