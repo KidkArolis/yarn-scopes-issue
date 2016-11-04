@@ -1,13 +1,31 @@
 const path = require('path')
 const express = require('express')
+const morgan = require('morgan')
 
 const PORT = 3300
+const TOKEN = 'abc123'
 const app = express()
 
 app.set('trust proxy', true)
+app.use(morgan('combined'))
 
-app.get('/@foo/bar', (req, res) => {
-  console.log('REQ', req.host)
+app.get('/@foo/bar', auth, meta)
+app.get('/@foo%2fbar', auth, meta)
+app.get('/@foo/bar/-/@foo/bar-1.0.0.tgz', auth, tarball)
+
+function auth (req, res, next) {
+  const token = (req.headers.authorization || '').split('Bearer ')[1]
+
+  console.log('Received token:', token)
+
+  if (token !== TOKEN) {
+    res.sendStatus(401)
+  } else {
+    next()
+  }
+}
+
+function meta (req, res) {
   res.send({
     '_id': '@foo/bar',
     '_rev': '2153',
@@ -39,11 +57,11 @@ app.get('/@foo/bar', (req, res) => {
       }
     }
   })
-})
+}
 
-app.get('/@foo/bar/-/@foo/bar-1.0.0.tgz', (req, res) => {
+function tarball (req, res) {
   res.sendFile(path.join(__dirname, '@foo-bar-1.0.0.tgz'))
-})
+}
 
 app.listen(PORT, () => {
   console.log('NPM registry running.')
