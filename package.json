@@ -6,10 +6,16 @@
     "url": "git@github.com:KidkArolis/yarn-scopes-issue.git",
     "type": "git"
   },
+  "scripts": {
+    "start": "node."
+  },
   "author": "Karolis Narkevicius <karolis.n@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
     "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "now": "^0.28.0"
   }
 }
